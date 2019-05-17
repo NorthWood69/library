@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>{{ page_title }} - Библиотека</title>{% endblock %}
+{% block content %}
+    <h1>{{ page_title }}</h1>
+    {% if book_list %}
+    <ul>
+      {% for book in book_list %}
+      <li>
+        <a href="{{ book.get_absolute_url }}">{{ book }}</a> ({{book.author}}) {% if perms.catalog.can_change_books_data %}| <a href="{% url 'book-update' book.id %}">Изменить</a> | <a href="{% url 'book-delete' book.id %}">Удалить</a> |{% endif %}</li>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>К сожалению, в нашей библиотеке пока нет ни одной книги.</p>
+    {% endif %}
+{% endblock %}

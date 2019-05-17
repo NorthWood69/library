@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>{{ page_title }} - Библиотека</title>{% endblock %}
+{% block content %}<h1>{{ page_title }}</h1>
+  <p>Мы рады приветствовать Вас на сайте <em>Библиотека</em>, который демонстрирует основные возможности разработки на основе фреймворка Django и примеров MDN (<em>Mozilla Developer Network</em>).</p>
+<h2>Динамический контент</h2>
+  <p>Статистические данные библиотеки:</p>
+  <ul>
+    <li><strong>Уникальных названий книг:</strong> {{ num_books }}</li>
+    <li><strong>Книг с фразой <em>професси</em> в названии без учета регистра:</strong> {{ num_books_prof }}</li>
+    <li><strong>Всего экземпляров книг:</strong> {{ num_instances }}</li>
+    <li><strong>Экземпляров, доступных для посетителей:</strong> {{ num_instances_available }}</li>
+    <li><strong>Всего авторов произведений:</strong> {{ num_authors }}</li>
+    <li><strong>Всего жанров произведений:</strong> {{ num_genre }}</li>
+    <li><strong>Всего языков изданий:</strong> {{ num_language }}</li>
+  </ul>
+  <p>{{ num_visits }}</p>{% endblock %}

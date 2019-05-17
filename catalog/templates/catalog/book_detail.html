@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>{{ book }} - Библиотека</title>{% endblock %}
+{% block content %}
+  <h1>{{ book }}</h1>
+  <p><strong>Автор:</strong> <a href="{% url 'author-detail' book.author.pk %}">{{ book.author }}</a></p>
+  <p><strong>Аннотация:</strong> {{ book.summary }}</p>
+  <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+  <p><strong>Язык:</strong> {{ book.language }}</p>
+  <p><strong>Жанр:</strong> {% for genre in book.genre.all %} {{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Копии книги</h4>
+    {% for copy in book.bookinstance_set.all %}
+    <hr>
+    <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'd' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
+    {% if copy.status != 'a' %}<p><strong>Должна быть возвращена:</strong> {{copy.due_back}}</p>{% endif %}
+    <p><strong>Штамп:</strong> {{copy.imprint}}</p>
+    <p class="text-muted"><strong>Id:</strong> {{copy.id}}</p>
+    {% endfor %}
+    <p>&nbsp;</p>
+    <hr>
+    {% if perms.catalog.can_change_books_data %}
+    <p>| <a href="{% url 'book-update' book.id %}">Изменить данные</a> | <a href="{% url 'book-delete' book.id %}">Удалить книгу</a> |</p>
+    {% endif %}
+  </div>
+{% endblock %}

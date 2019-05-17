@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>Вход на сайт</title>{% endblock %}
+{% block content %}<h1>Вход на сайт</h1>
+{% if form.errors %}
+<p class="error">Имя пользователя и/или пароль не прошли проверку.</p>
+{% endif %}
+{% if next %}
+    {% if user.is_authenticated %}
+    <p class="error">Ваш аккаунт не имеет прав доступа к этой странице.</p>
+    {% else %}
+    <p class="message"></p>
+    {% endif %}
+{% endif %}
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<div id="loginForm">
+  <p class="loginRow">
+    <label class="loginLabel">{{ form.username.label_tag }}{{ form.username }}</label>
+  </p>
+  <p class="loginRow">
+    <label class="loginLabel">{{ form.password.label_tag }}{{ form.password }}</label>
+  </p>
+  <p class="resetpass"><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+  <p id="loginButtonRow" class="">
+    <input id="submit" class="button blue" type="submit" value="Войти">
+    <input type="hidden" name="next" value="{{ next }}" />
+  </p>
+</div>
+<div id="productName">
+    <img src="/static/images/logo-175x36px.png" style="width: 175px; margin-right: 10px;">
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>Удаление: {{ book }} - Библиотека</title>{% endblock %}
+{% block content %}
+<h1>Удаление: {{ book }}</h1>
+<hr>
+{% if perms.catalog.can_change_books_data %}
+<p>Вы уверены, что хотите удалить книгу {{ book }} из базы данных?</p>
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-default btn-lg" value="Да, удалить" />
+</form>
+{% else %}
+<p>Вас нет прав доступа для выполнения этой операции.</p>
+{% endif %}
+{% endblock %}
