@@ -62,6 +62,22 @@ class AuthorListView(generic.ListView):
 class AuthorDetailView(generic.DetailView):
     model = Author
 
+class GenreListView(generic.ListView):
+    model = Genre
+    def get_context_data(self, **kwargs):
+        context = super(GenreListView, self).get_context_data(**kwargs)
+        context['page_title'] = 'Список жанров'
+        return context
+    paginate_by = 10
+
+class LanguageListView(generic.ListView):
+    model = Language
+    def get_context_data(self, **kwargs):
+        context = super(LanguageListView, self).get_context_data(**kwargs)
+        context['page_title'] = 'Список языков'
+        return context
+    paginate_by = 10
+
 class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
     model = BookInstance
     template_name = 'catalog/bookinstance_list_borrowed_user.html'

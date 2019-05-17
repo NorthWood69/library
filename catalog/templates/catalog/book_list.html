@@ -6,7 +6,7 @@
     <ul>
       {% for book in book_list %}
       <li>
-        <a href="{{ book.get_absolute_url }}">{{ book }}</a> ({{book.author}}) {% if perms.catalog.can_change_books_data %}| <a href="{% url 'book-update' book.id %}">Изменить</a> | <a href="{% url 'book-delete' book.id %}">Удалить</a> |{% endif %}</li>
+        <a href="{{ book.get_absolute_url }}">{{ book }}</a> ({{book.author}}) {% if perms.catalog.can_change_books_data %}| <a class="text_edit" href="{% url 'book-update' book.id %}">Изменить</a> | <a class="text_delete" href="{% url 'book-delete' book.id %}">Удалить</a> |{% endif %}</li>
       </li>
       {% endfor %}
     </ul>

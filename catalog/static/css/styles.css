@@ -5,6 +5,7 @@
     width: 100%;
     background: #3075ab;
     margin: 0;
+    color: #ddd;
 }
 a:link, a:visited {
     color: #ddd;
@@ -22,7 +23,9 @@ h1 {
     color: yellow;
 }
 input[type=text],
-input[type=password] {
+input[type=password],
+input[type=email],
+select, textarea {
     display: block;
     width: 200px!important;
     padding: 0 5px;
@@ -34,19 +37,27 @@ input[type=password] {
     color: #333;
     font-weight: 400;
 }
+textarea {
+    height: 150px !important;
+}
 label {
     display: inline-block;
     margin-bottom: 5px;
     font-weight: 700;
 }
-#loginForm {
+#loginForm, #resetForm, #confirmForm, #authorForm, #bookForm {
     top: 150px;
     width: 381px;
     z-index: 3;
-    background-image: url(../images/divider.png);
     background-position: right;
     background-repeat: repeat-y;
     position: absolute;
+}
+#authorForm, #bookForm {
+    width: 480px !important;
+}
+#loginForm {
+    background-image: url(../images/divider.png);
 }
 #productName {
     position: absolute;
@@ -55,11 +66,17 @@ label {
     color: #FFF;
     font-size: 23px;
 }
-#loginButtonRow {
+#loginButtonRow, #resetButtonRow, #confirmButtonRow {
     clear: both;
     float: right;
     margin-right: 40px;
     margin-top: 0;
+}
+#confirmButtonRow input {
+    float: right;
+}
+#resetButtonRow, #confirmButtonRow {
+    padding-top: 19px;
 }
 .resetpass {
     float: right;
@@ -82,15 +99,20 @@ label {
     font-size: 12px;
     color: #333;
 }
-.loginLabel {
+.loginLabel, .resetLabel, .confirmLabel {
     font-weight: 700;
     color: #ddd;
     text-align: left;
     display: block;
 }
-.loginRow {
+.loginRow, .resetRow, .confirmRow {
     display: block;
     padding-top: 10px;
+}
+#authorForm p, #bookForm p {
+    display: inline-block;
+    padding-top: 10px;
+    width: 100%;
 }
 .sidebar-nav {
     margin-top: 70px;
@@ -114,4 +136,13 @@ label {
     color: #fff;
     font-weight: 700;
     text-decoration: underline;
+}
+p.text-warning, p.text-success, p.text-muted {
+    color: #fff;
+}
+a.text_delete, .text-danger {
+    color: #F86872;
+}
+a.text_edit {
+    color: #9CFC9F;
 }

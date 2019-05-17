@@ -7,7 +7,7 @@
 <p>Вы уверены, что хотите удалить автора {{ author }} из базы данных?</p>
 <form action="" method="POST">
   {% csrf_token %}
-  <input type="submit" class="btn btn-default btn-lg" value="Да, удалить" />
+    <input id="submit" class="button blue" type="submit" value="Да, удалить!">
 </form>
 {% else %}
 <p>Вас нет прав доступа для выполнения этой операции.</p>

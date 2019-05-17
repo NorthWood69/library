@@ -40,7 +40,7 @@
   "pk": 3,
   "fields": {
     "password": "pbkdf2_sha256$150000$34FOeWbpj2pq$RC8MgICt/bqSstO0xNh4rFOrRm5dykKumLZWGF4i+Rs=",
-    "last_login": "2019-05-12T18:52:12Z",
+    "last_login": "2019-05-17T16:55:48.285Z",
     "is_superuser": false,
     "username": "efrems",
     "first_name": "\u0415\u0444\u0440\u0435\u043c",
@@ -53,9 +53,9 @@
       2
     ],
     "user_permissions": [
-      29,
-      34,
-      47
+      47,
+      37,
+      42
     ]
   }
 },
@@ -63,8 +63,8 @@
   "model": "auth.user",
   "pk": 4,
   "fields": {
-    "password": "pbkdf2_sha256$150000$8UWHCKxf4VtX$UbalEVbOXkt4MR1E/KhpgSiLz1WSLT+gH5J6g9gdGL8=",
-    "last_login": "2019-05-17T13:42:57Z",
+    "password": "pbkdf2_sha256$150000$2xKcowJlizoZ$cu089zuTIfT9ytosbKpGXuV7Jm8vgQg3B4zuw6fON+A=",
+    "last_login": "2019-05-17T16:52:32.015Z",
     "is_superuser": true,
     "username": "siteadmin",
     "first_name": "\u0410\u0440\u044c\u0435",
@@ -91,6 +91,14 @@
   "fields": {
     "session_data": "ZWFlZWNjNjYwZTE5ZDAxYmQ1ZWU5NmIzZDY5Nzg3YzU0ZDc3ZjIwMTp7Im51bV92aXNpdHMiOjksIl9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI4MmYzN2RhODYyZDlhN2ExM2E4MGVmNzA3YTVkZDJjOTk4MDg4NzFmIn0=",
     "expire_date": "2019-05-31T14:10:11.233Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "h4ax086n2nzz7zsdg7o1g3pf7p3szmnq",
+  "fields": {
+    "session_data": "OThhZmYzZDk1NTVmOWQxODhjNGYxMmNmYmNjZWY2MTllM2M5NWVkMDp7Im51bV92aXNpdHMiOjMsIl9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjZDM1MzRjM2M0MjQ2N2FkNDM2YjUyOTZhZTRhZGU4NTllNmNjNWFkIn0=",
+    "expire_date": "2019-05-31T16:55:48.315Z"
   }
 },
 {
@@ -1085,6 +1093,19 @@
     "object_repr": "Readers",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2019-05-17T16:55:10.701Z",
+    "user": 4,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "efrems",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"user_permissions\"]}}]"
   }
 }
 ]

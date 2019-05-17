@@ -5,7 +5,7 @@
     {% if author_list %}
     <ul>
       {% for author in author_list %}
-      <li><a href="{{ author.get_absolute_url }}">{{ author }}{% if author.date_of_birth %} (<em>д.р.: {{ author.date_of_birth }}{% if author.date_of_death %}, д.с.: {{ author.date_of_death }}{% endif %}</em>){% endif %}</a> {% if perms.catalog.can_change_authors_data %}| <a href="{% url 'author-update' author.id %}">Изменить</a> | <a href="{% url 'author-delete' author.id %}">Удалить</a> |{% endif %}</li>
+      <li><a href="{{ author.get_absolute_url }}">{{ author }}{% if author.date_of_birth %} (<em>д.р.: {{ author.date_of_birth }}{% if author.date_of_death %}, д.с.: {{ author.date_of_death }}{% endif %}</em>){% endif %}</a> {% if perms.catalog.can_change_authors_data %}| <a class="text_edit" href="{% url 'author-update' author.id %}">Изменить</a> | <a class="text_delete" href="{% url 'author-delete' author.id %}">Удалить</a> |{% endif %}</li>
       {% endfor %}
     </ul>
     {% else %}

@@ -17,12 +17,12 @@
           <li><a href="{% url 'index' %}">Главная</a></li>
           <li><a href="{% url 'books' %}">Список книг</a></li>
           <li><a href="{% url 'authors' %}">Список авторов</a></li>
-          <li><a href="">Жанры</a></li>
-          <li><a href="">Языки</a></li>
+          <li><a href="{% url 'genres' %}">Список жанров</a></li>
+          <li><a href="{% url 'langs' %}">Список языков</a></li>
       </ul>
       <ul class="sidebar-nav user">{% if user.is_authenticated %}
             <li class=title-nav>Для пользователя</li>
-            <li><strong>{{ user.get_username }}</strong></li>
+            <li><strong>{{ user.first_name }} {{ user.last_name }}</strong></li>
             <li><a href="{% url 'my-borrowed' %}">Мной арендовано</a></li>
             <li><a href="{% url 'logout' %}?next={{ request.path }}">Выход</a></li>
           {% else %}<li><a href="{% url 'login' %}?next={{ request.path }}">Вход на сайт</a></li>{% endif %}

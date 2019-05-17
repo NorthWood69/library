@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>{{ page_title }} - Библиотека</title>{% endblock %}
+{% block content %}
+    <h1>{{ page_title }}</h1>
+    {% if genre_list %}
+    <ul>
+      {% for genre in genre_list %}
+      <li>{{ genre }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>К сожалению, в нашей библиотеке пока не представлено книг ни в одном жанре.</p>
+    {% endif %}
+{% endblock %}

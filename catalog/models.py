@@ -23,12 +23,12 @@ class Language(models.Model):
         return self.name
 
 class Book(models.Model):
-    title = models.CharField('Наименование', max_length=200, help_text='Название этой книги.')
-    author = models.ForeignKey('Author', verbose_name='Автор', on_delete=models.SET_NULL, null=True, help_text='Автор этой книги.')
-    summary = models.TextField('О книге', max_length=1000, help_text='Краткое описание этой книги.')
-    isbn = models.CharField('ISBN', max_length=13, help_text='13-ти символьный <a href="https://www.isbn-international.org/content/what-isbn">номер ISBN</a>')
-    genre = models.ManyToManyField('Genre', verbose_name='Жанр', help_text='Жанр, соответствующий этой книге.')
-    language = models.ForeignKey('Language', verbose_name='Язык', on_delete=models.SET_NULL, null=True, help_text='Язык издания этой книги.')
+    title = models.CharField('Наименование', max_length=200, help_text='')
+    author = models.ForeignKey('Author', verbose_name='Автор', on_delete=models.SET_NULL, null=True, help_text='')
+    summary = models.TextField('О книге', max_length=1000, help_text='')
+    isbn = models.CharField('ISBN', max_length=13, help_text='')
+    genre = models.ManyToManyField('Genre', verbose_name='Жанр', help_text='')
+    language = models.ForeignKey('Language', verbose_name='Язык', on_delete=models.SET_NULL, null=True, help_text='')
 
     class Meta:
         ordering = ['title']
@@ -74,12 +74,12 @@ class BookInstance(models.Model):
         return '{0} ({1})'.format(self.id, self.book.title)
 
 class Author(models.Model):
-    first_name = models.CharField('Имя', max_length=100, help_text='Имя автора книги.')
-    last_name = models.CharField('Фамилия', max_length=100, help_text='Фамилия автора книги.')
-    first_name_ml = models.CharField('Имя (родной язык)', max_length=100, null=True, blank=True, help_text='Имя автора на его родном языке.')
-    last_name_ml = models.CharField('Фамилия (родной язык)', max_length=100, null=True, blank=True, help_text='Фамилия автора на его родном языке.')
-    date_of_birth = models.DateField('Дата рождения', null=True, blank=True, help_text='Дата рождения автора (если известна).')
-    date_of_death = models.DateField('Дата смерти', null=True, blank=True, help_text='Дата смерти автора (если известна).')
+    first_name = models.CharField('Имя', max_length=100, help_text='')
+    last_name = models.CharField('Фамилия', max_length=100, help_text='')
+    first_name_ml = models.CharField('Имя (родной язык)', max_length=100, null=True, blank=True, help_text='')
+    last_name_ml = models.CharField('Фамилия (родной язык)', max_length=100, null=True, blank=True, help_text='')
+    date_of_birth = models.DateField('Дата рождения', null=True, blank=True, help_text='')
+    date_of_death = models.DateField('Дата смерти', null=True, blank=True, help_text='')
 
     class Meta:
         ordering = ['last_name', 'first_name']
